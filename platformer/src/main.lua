@@ -5,7 +5,6 @@ local speed = 200
 
 function love.load()
 	map = STI.new("res/maps/map.lua")
-	map:setDrawRange(0, 0, map.width * map.tileWidth, map.height * map.tileHeight)
 
 	player = love.graphics.newImage("res/images/jumper.png")
 
