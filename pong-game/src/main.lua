@@ -4,6 +4,7 @@ function love.load()
     background_color = {39, 120, 120, 0}
     love.window.setTitle('Emily\'s PONG GAME')
     love.window.setMode(screen_width, screen_height)
+    music = love.audio.newSource("res/arcadetune.wav")
 
     -- set paddles and ball up
     load_paddle1()
@@ -97,6 +98,7 @@ function love.draw()
 	draw_paddle1()
 	draw_paddle2()
 	draw_ball()
+	music:play()
 	-- pause the game
 	if state == 'pause' then
 		draw_pause_screen()
