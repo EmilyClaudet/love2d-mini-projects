@@ -5,7 +5,7 @@ require 'pause'
 function love.load()
     screen_width = 500
     screen_height = 300
-    background_color = {39, 120, 120, 0}
+    background_color = {39, 160, 160, 0}
     love.window.setTitle('Emily\'s PONG GAME')
     love.window.setMode(screen_width, screen_height)
     music = love.audio.newSource("res/arcadetune.wav")
@@ -42,5 +42,12 @@ function love.draw()
 	if state == 'pause' then
 		draw_pause_screen()
 		love.audio.pause(music)
+	end
+end
+
+function love.quit()
+	if love.keyboard.isDown('escape') then
+		love.event.quit()
+		print('Quitting Pong...')
 	end
 end

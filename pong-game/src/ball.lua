@@ -30,6 +30,7 @@ function bounce_ball_off_paddle1()
 		ball_y < (paddle1_y + paddle1_h)
 	then
 		ball_speed_x = math.abs(ball_speed_x)
+		paddle1_sound:play()
 	end
 end
 
@@ -39,6 +40,7 @@ function bounce_ball_off_paddle2()
 		ball_y < (paddle2_y + paddle2_h)
 	then
 		ball_speed_x = -math.abs(ball_speed_x)
+		paddle2_sound:play()
 	end
 end
 
@@ -48,7 +50,7 @@ function update_ball(dt)
 end
 
 function draw_ball()
-	love.graphics.setColor(0, 0, 255)
+	love.graphics.setColor(255, 150, 0)
 	love.graphics.rectangle('fill', ball_x, ball_y, ball_w, ball_h)
 end
 
