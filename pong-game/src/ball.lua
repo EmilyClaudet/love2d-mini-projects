@@ -34,7 +34,7 @@ function bounce_ball_off_paddle1()
 end
 
 function bounce_ball_off_paddle2()
-	if (ball_x + ball_w) <= (screen_width - paddle2_w) and
+	if (ball_x + ball_w) >= (screen_width - paddle2_w) and
 		(ball_y + ball_h) >= paddle2_y and
 		ball_y < (paddle2_y + paddle2_h)
 	then
