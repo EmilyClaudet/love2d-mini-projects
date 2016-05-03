@@ -25,7 +25,6 @@ function reset_ball_if_offscreen()
 end
 
 function bounce_ball_off_paddle1()
-	-- Ball bounces off paddle1
 	if ball_x <= paddle1_w and
 		(ball_y + ball_h) >= paddle1_y and
 		ball_y < (paddle1_y + paddle1_h)
@@ -35,7 +34,6 @@ function bounce_ball_off_paddle1()
 end
 
 function bounce_ball_off_paddle2()
-	-- Ball bounces off paddle2
 	if (ball_x + ball_w) <= (screen_width - paddle2_w) and
 		(ball_y + ball_h) >= paddle2_y and
 		ball_y < (paddle2_y + paddle2_h)
