@@ -5,13 +5,17 @@ function load_ball()
 	ball_y = (screen_height / 2) - (ball_h / 2 )
 	ball_speed_x = -200
 	ball_speed_y = 200
+	score_sound = love.audio.newSource("res/score.wav")
+	wall_sound = love.audio.newSource("res/wall.wav")
 end
 
 function bounce_ball_off_walls()
 	if ball_y < 0 then
 		ball_speed_y = math.abs(ball_speed_y)
+		wall_sound:play()
 	elseif (ball_y + ball_h) > screen_height then
 		ball_speed_y = -math.abs(ball_speed_y)
+		wall_sound:play()
 	end
 end
 
@@ -21,6 +25,7 @@ function reset_ball_if_offscreen()
 		ball_y = (screen_height / 2) - (ball_h / 2)
 		ball_speed_x = -200
 		ball_speed_y = 200
+		score_sound:play()
 	end
 end
 
