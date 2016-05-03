@@ -6,3 +6,5 @@ Plan so far:
 * A Platformer
 * A Pong remix
 * A weird combo of whatever I learn
+
+Going to try and do as many assets as possible on my own.
