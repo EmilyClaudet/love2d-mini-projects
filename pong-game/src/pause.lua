@@ -2,8 +2,7 @@ function love.keypressed(key)
 	if key == 'q' then
 		love.event.push('q')
 	end
-
-	if key == 'p' then
+	if key == 'space' then
 		if state == 'play' then
 			state = 'pause'
 		else
