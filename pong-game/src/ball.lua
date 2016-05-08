@@ -7,8 +7,6 @@ function load_ball()
 	ball_speed_y = 200
 	score_sound = love.audio.newSource("res/score.wav")
 	wall_sound = love.audio.newSource("res/wall.wav")
-	score1 = 0
-	score2 = 0
 end
 
 function bounce_ball_off_walls()
