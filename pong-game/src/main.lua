@@ -12,6 +12,7 @@ function love.load()
     load_paddle1()
 	load_paddle2()
 	load_ball()
+	load_score()
 
 	state = 'play'
 end
@@ -27,12 +28,13 @@ function love.update(dt)
 	bounce_ball_off_paddle1()
 	bounce_ball_off_paddle2()
 	update_ball(dt)
+	player1_wins()
+	player2_wins()
 	-- quit game with ESC
 	love.quit()
 end
 
 function love.draw()
-	-- draw background
 	love.graphics.setBackgroundColor(background_color)
 	draw_paddle1()
 	draw_paddle2()
@@ -44,11 +46,19 @@ function love.draw()
 		draw_pause_screen()
 		love.audio.pause(music)
 	end
+	if state == 'end1' then 
+		draw_end_screen1()
+		love.audio.pause(music)
+	end
+	if state == 'end2' then 
+		draw_end_screen2()
+		love.audio.pause(music)
+	end
 end
 
 function love.quit()
 	if love.keyboard.isDown('escape') then
-		love.event.quit()
 		print('Quitting Pong...')
+		love.event.quit()
 	end
 end
