@@ -7,6 +7,8 @@ function load_ball()
 	ball_speed_y = 200
 	score_sound = love.audio.newSource("res/score.wav")
 	wall_sound = love.audio.newSource("res/wall.wav")
+	score1 = 0
+	score2 = 0
 end
 
 function bounce_ball_off_walls()
@@ -18,9 +20,6 @@ function bounce_ball_off_walls()
 		wall_sound:play()
 	end
 end
-
-score1 = 0
-score2 = 0
 
 function reset_ball_if_offscreen()	
 	if ball_x + ball_w < 0 then
