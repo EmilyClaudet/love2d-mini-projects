@@ -40,12 +40,14 @@ function reset_ball_if_offscreen()
 	end
 end
 
+acc = 1.05
+
 function bounce_ball_off_paddle1()
 	if ball_x <= paddle1_w and
 		(ball_y + ball_h) >= paddle1_y and
 		ball_y < (paddle1_y + paddle1_h)
 	then
-		ball_speed_x = math.abs(ball_speed_x)
+		ball_speed_x = math.abs(ball_speed_x) * acc
 		paddle1_sound:play()
 	end
 end
@@ -55,7 +57,7 @@ function bounce_ball_off_paddle2()
 		(ball_y + ball_h) >= paddle2_y and
 		ball_y < (paddle2_y + paddle2_h)
 	then
-		ball_speed_x = -math.abs(ball_speed_x)
+		ball_speed_x = -math.abs(ball_speed_x) * acc
 		paddle2_sound:play()
 	end
 end
@@ -71,6 +73,7 @@ function draw_ball()
 end
 
 function draw_score()
+	love.graphics.setColor(255, 255, 255)
 	love.graphics.print(score1, 220, 10, 0, 2, 2)
 	love.graphics.print(score2, 270, 10, 0, 2, 2)
 end
