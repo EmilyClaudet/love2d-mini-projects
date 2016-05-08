@@ -19,13 +19,24 @@ function bounce_ball_off_walls()
 	end
 end
 
-function reset_ball_if_offscreen()
-	if ball_x + ball_w < 0 or ball_x > screen_width then
+score1 = 0
+score2 = 0
+
+function reset_ball_if_offscreen()	
+	if ball_x + ball_w < 0 then
 		ball_x = (screen_width / 2) - (ball_w / 2)
 		ball_y = (screen_height / 2) - (ball_h / 2)
 		ball_speed_x = -200
 		ball_speed_y = 200
 		score_sound:play()
+		score2 = score2 + 1
+	elseif ball_x > screen_width then
+		ball_x = (screen_width / 2) - (ball_w / 2)
+		ball_y = (screen_height / 2) - (ball_h / 2)
+		ball_speed_x = 200
+		ball_speed_y = 200
+		score_sound:play()
+		score1 = score1 + 1
 	end
 end
 
@@ -57,5 +68,10 @@ end
 function draw_ball()
 	love.graphics.setColor(255, 150, 0)
 	love.graphics.rectangle('fill', ball_x, ball_y, ball_w, ball_h)
+end
+
+function draw_score()
+	love.graphics.print(score1, 220, 10, 0, 2, 2)
+	love.graphics.print(score2, 270, 10, 0, 2, 2)
 end
 

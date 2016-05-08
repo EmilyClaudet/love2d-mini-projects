@@ -37,6 +37,7 @@ function love.draw()
 	draw_paddle1()
 	draw_paddle2()
 	draw_ball()
+	draw_score()
 	music:play()
 	-- pause the game
 	if state == 'pause' then
